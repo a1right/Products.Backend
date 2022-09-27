@@ -30,7 +30,7 @@ namespace Products.WebApi
                 config.AddProfile(new AssemblyMappingProfile(typeof(IProductsDbContext).Assembly));
             });
             builder.Services.AddApplication();
-
+            builder.Services.AddProductsDbContext(builder.Configuration);
             builder.Services.AddSwaggerGen();
             var app = builder.Build();
             using (var scoped = app.Services.CreateScope())
