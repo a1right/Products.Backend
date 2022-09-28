@@ -48,7 +48,7 @@ namespace Products.Persistence
         {
             string sqlConnectionString = ConnectionAndCommandConsts.rootConnectionString;
 
-            string script = File.ReadAllText(GetDbCreateScriptPath(), Encoding.GetEncoding(1251));
+            string script = File.ReadAllText(GetDbCreateScriptPath(), Encoding.GetEncoding(ConnectionAndCommandConsts.dbCreateScriptEncoding));
 
             SqlConnection conn = new SqlConnection(sqlConnectionString);
 

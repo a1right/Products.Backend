@@ -14,7 +14,7 @@ namespace Products.Persistence
     {
         public static IServiceCollection AddProductsDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration["ConnectionString"];
+            var connectionString = configuration["Products"];
             services.AddDbContext<ProductsDbContext>(options =>
                 options.UseSqlServer(connectionString));
             services.AddScoped<IProductsDbContext>(provider =>

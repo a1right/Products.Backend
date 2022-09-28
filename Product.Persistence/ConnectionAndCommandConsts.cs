@@ -18,6 +18,7 @@ namespace Products.Persistence
             $"SELECT db_id('{dbName}')";
 
         public const string dbCreateScriptName = "TestDbCreate.sql";
+        public const string dbCreateScriptEncoding = "windows-1251";
         public const string dbCreateScriptPath = "Products.Backend\\Product.Persistence\\DbCreationSqlScript\\";
         public const string projectName = "Products.Backend";
     }

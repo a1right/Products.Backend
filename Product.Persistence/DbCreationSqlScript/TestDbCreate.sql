@@ -1,5 +1,5 @@
 CREATE DATABASE TestDB;
-ALTER DATABASE TestDB COLLATE Cyrillic_General_100_CI_AS_KS_WS_SC_UTF8; 
+ALTER DATABASE TestDB COLLATE Cyrillic_General_100_CI_AS_KS_WS_SC; 
 
 GO
 
@@ -134,6 +134,7 @@ JOIN Product ON ProductVersion.ProductID = Product.Id
 WHERE ProductVersion.Name LIKE '%' + @namePartial + '%';
 
 GO
+
 CREATE PROCEDURE SearchByMinSize (@minSize DECIMAL(7,2))
 AS
 SELECT ProductVersion.Id, Product.Name, ProductVersion.Name, ProductVersion.Width, ProductVersion.Length, ProductVersion.Height
@@ -142,6 +143,7 @@ JOIN ProductVersion ON ProductVersion.ProductID = Product.Id
 WHERE ProductVersion.Height >= @minSize OR ProductVersion.Length >= @minSize OR ProductVersion.Height >= @minSize;
 
 GO
+
 CREATE PROCEDURE SearchByMaxSize (@maxSize DECIMAL(7,2))
 AS
 SELECT ProductVersion.Id, Product.Name, ProductVersion.Name, ProductVersion.Width, ProductVersion.Length, ProductVersion.Height
@@ -150,17 +152,24 @@ JOIN ProductVersion ON ProductVersion.ProductID = Product.Id
 WHERE ProductVersion.Height <= @maxSize OR ProductVersion.Length <= @maxSize OR ProductVersion.Height <= @maxSize;
 
 --Initial data seed
+GO
 
 INSERT INTO Product(Id,Name, Description) VALUES(
 '049F1AB1-5FC5-46B8-A9AC-464B7E6A1265',
 'Стол деревяный',
 'Описание деревяного стола'
 );
+
+GO
+
 INSERT INTO Product(Id,Name, Description) VALUES(
 '882998DB-5A8C-4052-B278-9F6DF29A48F4',
 'Стол стальной',
 'Описание стального стола'
 );
+
+GO
+
 INSERT INTO Product(Id,Name, Description) VALUES(
 'ECDDE884-9224-4C84-9CFA-E8AE71DB23D0',
 'Стол пластиковый',
@@ -168,6 +177,9 @@ INSERT INTO Product(Id,Name, Description) VALUES(
 );
 --Initial ProductVersion
 --Wooden Tables
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '049F1AB1-5FC5-46B8-A9AC-464B7E6A1265',
@@ -177,6 +189,9 @@ NEWID(),
 500,
 800
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '049F1AB1-5FC5-46B8-A9AC-464B7E6A1265',
@@ -186,6 +201,9 @@ NEWID(),
 700,
 1200
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '049F1AB1-5FC5-46B8-A9AC-464B7E6A1265',
@@ -195,6 +213,9 @@ NEWID(),
 400,
 200
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '049F1AB1-5FC5-46B8-A9AC-464B7E6A1265',
@@ -204,6 +225,9 @@ NEWID(),
 500,
 800
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '049F1AB1-5FC5-46B8-A9AC-464B7E6A1265',
@@ -214,6 +238,9 @@ NEWID(),
 800
 );
 -- Steel Tables
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '882998DB-5A8C-4052-B278-9F6DF29A48F4',
@@ -223,6 +250,9 @@ NEWID(),
 500,
 800
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '882998DB-5A8C-4052-B278-9F6DF29A48F4',
@@ -232,6 +262,9 @@ NEWID(),
 700,
 1200
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '882998DB-5A8C-4052-B278-9F6DF29A48F4',
@@ -241,6 +274,9 @@ NEWID(),
 400,
 200
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '882998DB-5A8C-4052-B278-9F6DF29A48F4',
@@ -250,6 +286,9 @@ NEWID(),
 500,
 800
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 '882998DB-5A8C-4052-B278-9F6DF29A48F4',
@@ -260,6 +299,9 @@ NEWID(),
 800
 );
 --Plastic Tables
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 'ECDDE884-9224-4C84-9CFA-E8AE71DB23D0',
@@ -269,6 +311,9 @@ NEWID(),
 500,
 800
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 'ECDDE884-9224-4C84-9CFA-E8AE71DB23D0',
@@ -278,6 +323,9 @@ NEWID(),
 700,
 1200
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 'ECDDE884-9224-4C84-9CFA-E8AE71DB23D0',
@@ -287,6 +335,9 @@ NEWID(),
 400,
 200
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 'ECDDE884-9224-4C84-9CFA-E8AE71DB23D0',
@@ -296,6 +347,9 @@ NEWID(),
 500,
 800
 );
+
+GO
+
 INSERT INTO ProductVersion(Id, ProductID, Name, Description, Width, Height, Length) VALUES(
 NEWID(),
 'ECDDE884-9224-4C84-9CFA-E8AE71DB23D0',

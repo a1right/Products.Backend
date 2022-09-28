@@ -33,20 +33,8 @@ namespace Products.WebApi
             builder.Services.AddProductsDbContext(builder.Configuration);
             builder.Services.AddSwaggerGen();
             var app = builder.Build();
-            using (var scoped = app.Services.CreateScope())
-            {
-                var serviceProvider = scoped.ServiceProvider;
-                try
-                {
-                    var context = serviceProvider.GetRequiredService<ProductsDbContext>();
-                    DbInitializer.Initialize();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-
-            }
+            DbInitializer.Initialize();
+            
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
