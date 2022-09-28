@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MediatR;
+using Products.Domain;
 
 namespace Products.Application.Products.Queries.GetProductDetails
 {
-    public class GetProductDetailsQuerry : IRequest<ProductDetailDto>
+    public class GetProductDetailsQuerry : IRequest<ProductDetailsVM>
     {
         public Guid Id { get; set; }
     }

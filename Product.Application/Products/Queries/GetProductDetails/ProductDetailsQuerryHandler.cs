@@ -12,7 +12,7 @@ using Products.Domain;
 
 namespace Products.Application.Products.Queries.GetProductDetails
 {
-    public class ProductDetailsQuerryHandler : IRequestHandler<GetProductDetailsQuerry, ProductDetailDto>
+    public class ProductDetailsQuerryHandler : IRequestHandler<GetProductDetailsQuerry, ProductDetailsVM>
     {
         private readonly IProductsDbContext _context;
         private readonly IMapper _mapper;
@@ -22,12 +22,12 @@ namespace Products.Application.Products.Queries.GetProductDetails
             _mapper = mapper;
         }
 
-        public async Task<ProductDetailDto> Handle(GetProductDetailsQuerry request, CancellationToken cancellationToken)
+        public async Task<ProductDetailsVM> Handle(GetProductDetailsQuerry request, CancellationToken cancellationToken)
         {
             var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
             if (product == null)
                 throw new NotFoundException(nameof(Product), request.Id);
-            return _mapper.Map<ProductDetailDto>(product);
+            return _mapper.Map<ProductDetailsVM>(product);
         }
     }
 }

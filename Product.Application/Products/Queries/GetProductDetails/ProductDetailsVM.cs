@@ -5,7 +5,7 @@ using Products.Domain;
 
 namespace Products.Application.Products.Queries.GetProductDetails
 {
-    public class ProductDetailDto : IMapWith<Product>
+    public class ProductDetailsVM : IMapWith<Product>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -13,7 +13,7 @@ namespace Products.Application.Products.Queries.GetProductDetails
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Product, ProductDetailDto>()
+            profile.CreateMap<Product, ProductDetailsVM>()
                 .ForMember(dto => dto.Id, opt => opt
                     .MapFrom(prod => prod.Id))
                 .ForMember(dto => dto.Name, opt => opt

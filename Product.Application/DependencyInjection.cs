@@ -13,7 +13,7 @@ namespace Products.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddMediatR(Assembly.GetCallingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             return services;
         }
     }

@@ -1,0 +1,21 @@
+﻿using AutoMapper;
+using Products.Application.Products.Commands.CreateProduct;
+using Products.Application.Common.Mappings;
+
+namespace Products.WebApi.Models.Products
+{
+    public class CreateProductDto : IMapWith<CreateProductCommand>
+    {
+        public string Name { get; set; }
+        public string? Description { get; set; }
+
+        public void Mapping(Profile profile)
+        {
+            profile.CreateMap<CreateProductDto, CreateProductCommand>()
+                .ForMember(com => com.Name, opt => opt
+                    .MapFrom(dto => dto.Name))
+                .ForMember(com => com.Description, opt => opt
+                    .MapFrom(dto => dto.Description));
+        }
+    }
+}

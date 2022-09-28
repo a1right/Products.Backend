@@ -20,7 +20,7 @@ namespace Products.Application.Products.Commands.CreateProduct
             {
                 Name = request.Name,
                 Description = request.Description,
-                Id = new Guid()
+                Id = Guid.NewGuid()
             };
             await _context.Products.AddAsync(product, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);

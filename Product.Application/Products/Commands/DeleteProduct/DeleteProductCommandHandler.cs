@@ -20,7 +20,7 @@ namespace Products.Application.Products.Commands.DeleteProduct
 
         public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _context.Products.FindAsync(new object[] { request.Id, cancellationToken });
+            var product = await _context.Products.FindAsync(request.Id);
             if (product == null)
                 throw new NotFoundException(nameof(Product), request.Id);
             _context.Products.Remove(product);
