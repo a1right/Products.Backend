@@ -1,5 +1,4 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Products.Application.Common.Mappings;
 using Products.Domain;
 

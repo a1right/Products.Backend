@@ -1,6 +1,4 @@
-﻿using System;
-using MediatR;
-using Products.Application.Interfaces;
+﻿using MediatR;
 
 namespace Products.Application.Products.Commands.CreateProduct
 {

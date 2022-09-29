@@ -12,9 +12,9 @@ namespace Products.Persistence
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddProductsDbContext(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddProductsDbContext(this IServiceCollection services, IConfiguration configuration, string connectionStringName)
         {
-            var connectionString = configuration.GetConnectionString("Products");
+            var connectionString = configuration.GetConnectionString(connectionStringName);
             services.AddDbContext<ProductsDbContext>(options =>
                 options.UseSqlServer(connectionString));
             services.AddScoped<IProductsDbContext>(provider =>

@@ -9,6 +9,7 @@ using Products.WebApi.Models.Products;
 
 namespace Products.WebApi.Controllers
 {
+    [Route("api/[controller]")]
     public class ProductController : BaseController
     {
         private readonly IMapper _mapper;

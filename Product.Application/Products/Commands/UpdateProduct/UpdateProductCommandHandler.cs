@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Products.Application.Common.Exceptions;

@@ -31,7 +31,7 @@ namespace Products.WebApi
                 config.AddProfile(new AssemblyMappingProfile(typeof(IProductsDbContext).Assembly));
             });
             builder.Services.AddApplication();
-            builder.Services.AddProductsDbContext(builder.Configuration);
+            builder.Services.AddProductsDbContext(builder.Configuration, "Products");
             builder.Services.AddSwaggerGen();
             var app = builder.Build();
             DbInitializer.Initialize();

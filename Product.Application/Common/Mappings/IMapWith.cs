@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using System.Threading.Tasks;
 
 namespace Products.Application.Common.Mappings
 {

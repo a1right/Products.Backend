@@ -18,4 +18,9 @@
     <ProjectReference Include="..\Product.Domain\Products.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ProductVersions\Commands\" />
+    <Folder Include="ProductVersions\Queries\GetProductVersionDetails\" />
+  </ItemGroup>
+
 </Project>
