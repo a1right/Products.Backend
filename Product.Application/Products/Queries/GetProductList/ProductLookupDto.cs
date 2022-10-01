@@ -14,11 +14,11 @@ namespace Products.Application.Products.Queries.GetProductList
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Product, ProductLookupDto>()
-                .ForMember(dto => dto.Id, opt => opt
+                .ForMember(dto => dto.Id, options => options
                     .MapFrom(prod => prod.Id))
-                .ForMember(dto => dto.Name, opt => opt
+                .ForMember(dto => dto.Name, options => options
                     .MapFrom(prod => prod.Name))
-                .ForMember(dto => dto.Description, opt => opt
+                .ForMember(dto => dto.Description, options => options
                     .MapFrom(prod => prod.Description));
         }
     }

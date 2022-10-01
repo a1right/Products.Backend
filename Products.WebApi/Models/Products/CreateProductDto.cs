@@ -12,9 +12,9 @@ namespace Products.WebApi.Models.Products
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateProductDto, CreateProductCommand>()
-                .ForMember(com => com.Name, opt => opt
+                .ForMember(command => command.Name, opt => opt
                     .MapFrom(dto => dto.Name))
-                .ForMember(com => com.Description, opt => opt
+                .ForMember(command => command.Description, opt => opt
                     .MapFrom(dto => dto.Description));
         }
     }
