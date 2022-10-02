@@ -5,7 +5,7 @@ using Products.Application.Products.Commands.DeleteProduct;
 using Products.Application.Products.Commands.UpdateProduct;
 using Products.Application.Products.Queries.GetProductDetails;
 using Products.Application.Products.Queries.GetProductList;
-using Products.WebApi.Models.Products;
+using Products.WebApi.Models.Product;
 
 namespace Products.WebApi.Controllers
 {

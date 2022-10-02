@@ -8,17 +8,17 @@ using Products.Domain;
 
 namespace Products.Application.ProductVersions.Queries.GetProductVersionDetails
 {
-    public class ProductVersionQuerryHandler : IRequestHandler<ProductVersionQuerry, ProductVersionDetailsVM>
+    public class ProductVersionDetailsQuerryHandler : IRequestHandler<ProductVersionDetailsQuerry, ProductVersionDetailsVM>
     {
         private readonly IProductsDbContext _context;
         private readonly IMapper _mapper;
-        public ProductVersionQuerryHandler(IProductsDbContext context, IMapper mapper)
+        public ProductVersionDetailsQuerryHandler(IProductsDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public async Task<ProductVersionDetailsVM> Handle(ProductVersionQuerry request, CancellationToken cancellationToken)
+        public async Task<ProductVersionDetailsVM> Handle(ProductVersionDetailsQuerry request, CancellationToken cancellationToken)
         {
             var productVersion = await _context.ProductVersions.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
             if(productVersion == null)

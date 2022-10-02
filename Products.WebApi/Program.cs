@@ -1,6 +1,4 @@
 using System.Reflection;
-using MediatR;
-using Microsoft.EntityFrameworkCore.Internal;
 using Products.Application;
 using Products.Persistence;
 using Products.Application.Common.Mappings;

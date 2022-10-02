@@ -2,7 +2,7 @@
 using Products.Application.Products.Commands.CreateProduct;
 using Products.Application.Common.Mappings;
 
-namespace Products.WebApi.Models.Products
+namespace Products.WebApi.Models.Product
 {
     public class CreateProductDto : IMapWith<CreateProductCommand>
     {
