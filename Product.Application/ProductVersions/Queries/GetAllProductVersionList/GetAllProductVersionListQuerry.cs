@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Products.Application.ProductVersions.Queries.GetAllProductVersionList
 {
-    public class GetAllProductVersionListQuerry : IRequest<ProductVersionsListVM>
+    public class GetAllProductVersionListQuerry : IRequest<ProductVersionsListVm>
     {
 
     }

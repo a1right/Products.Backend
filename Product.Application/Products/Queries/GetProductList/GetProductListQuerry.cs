@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Products.Application.Products.Queries.GetProductList
 {
-    public class GetProductListQuerry : IRequest<ProductListVM>
+    public class GetProductListQuerry : IRequest<ProductListVm>
     {
 
     }

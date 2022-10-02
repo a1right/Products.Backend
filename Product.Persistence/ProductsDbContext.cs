@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Products.Application.Interfaces;
 using Products.Domain;
 using Products.Persistence.EntityTypeConfigurations;
@@ -23,5 +24,6 @@ namespace Products.Persistence
                         .ApplyConfiguration(new EventLogConfiguration());
             base.OnModelCreating(modelBuilder);
         }
+        
     }
 }

@@ -11,7 +11,7 @@ using Products.Application.Interfaces;
 
 namespace Products.Application.ProductVersions.Queries.GetAllProductVersionList
 {
-    public class GetAllProductVersionListQuerryHandler : IRequestHandler<GetAllProductVersionListQuerry, ProductVersionsListVM>
+    public class GetAllProductVersionListQuerryHandler : IRequestHandler<GetAllProductVersionListQuerry, ProductVersionsListVm>
     {
         private readonly IProductsDbContext _context;
         private readonly IMapper _mapper;
@@ -21,13 +21,13 @@ namespace Products.Application.ProductVersions.Queries.GetAllProductVersionList
             _mapper = mapper;
         }
 
-        public async Task<ProductVersionsListVM> Handle(GetAllProductVersionListQuerry request,
+        public async Task<ProductVersionsListVm> Handle(GetAllProductVersionListQuerry request,
             CancellationToken cancellationToken)
         {
             var productVersions = await _context.ProductVersions
                 .ProjectTo<ProductVersionLookupDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
-            return new ProductVersionsListVM { ProductVersions = productVersions };
+            return new ProductVersionsListVm { ProductVersions = productVersions };
         }
     }
 }

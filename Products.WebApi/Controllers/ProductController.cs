@@ -5,6 +5,7 @@ using Products.Application.Products.Commands.DeleteProduct;
 using Products.Application.Products.Commands.UpdateProduct;
 using Products.Application.Products.Queries.GetProductDetails;
 using Products.Application.Products.Queries.GetProductList;
+using Products.Application.Products.Queries.GetProductListFilteredByName;
 using Products.WebApi.Models.Product;
 
 namespace Products.WebApi.Controllers
@@ -19,13 +20,20 @@ namespace Products.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ProductListVM>> GetAll()
+        public async Task<ActionResult<ProductListVm>> GetAll()
         {
             var querry = new GetProductListQuerry();
             var result = await Mediator.Send(querry);
             return Ok(result);
         }
 
+        [HttpGet("/api/[controller]/name/{namePartial}")]
+        public async Task<ActionResult<ProductListVm>> Get(string namePartial)
+        {
+            var querry = new GetProductListFilteredByNameQuerry() { NamePartial = namePartial };
+            var result = await Mediator.Send(querry);
+            return Ok(result);
+        }
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDetailsVM>> Get(Guid id)
         {

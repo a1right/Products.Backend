@@ -15,21 +15,17 @@ namespace Products.WebApi.Controllers
     [Route("api/[controller]")]
     public class ProductVersionController : BaseController
     {
-        private readonly IProductsDbContext _context;
-        private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public ProductVersionController(IProductsDbContext context, IMediator mediator, IMapper mapper)
+        public ProductVersionController(IMapper mapper)
         {
-            _context = context;
-            _mediator = mediator;
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<ProductVersionsListVM>> GetAll()
+        public async Task<ActionResult<ProductVersionsListVm>> GetAll()
         {
             var querry = new GetAllProductVersionListQuerry();
-            var result = await _mediator.Send<ProductVersionsListVM>(querry);
+            var result = await Mediator.Send<ProductVersionsListVm>(querry);
             return Ok(result);
         }
         [HttpGet("{id}")]
@@ -37,7 +33,7 @@ namespace Products.WebApi.Controllers
         {
             var querry = new ProductVersionDetailsQuerry();
             querry.Id = id;
-            var result = await _mediator.Send<ProductVersionDetailsVM>(querry);
+            var result = await Mediator.Send<ProductVersionDetailsVM>(querry);
             return Ok(result);
         }
 
@@ -45,7 +41,7 @@ namespace Products.WebApi.Controllers
         public async Task<ActionResult<Guid>> Create([FromBody] CreateProductVersionDto createProductVersionDto)
         {
             var command = _mapper.Map<CreateProductVersionCommand>(createProductVersionDto);
-            var result = await _mediator.Send(command);
+            var result = await Mediator.Send(command);
             return Ok(result);
         }
 
@@ -53,7 +49,7 @@ namespace Products.WebApi.Controllers
         public async Task<IActionResult> Update([FromBody] UpdateProductVersionDto updateProductVersionDto)
         {
             var command = _mapper.Map<UpdateProductVersionCommand>(updateProductVersionDto);
-            var result = _mediator.Send(command);
+            var result = await Mediator.Send(command);
             return NoContent();
         }
 
@@ -61,7 +57,7 @@ namespace Products.WebApi.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteProductVersionCommand() { Id = id };
-            await _mediator.Send(command);
+            await Mediator.Send(command);
             return NoContent();
         }
     }

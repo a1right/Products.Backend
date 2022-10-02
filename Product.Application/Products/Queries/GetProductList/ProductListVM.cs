@@ -1,7 +1,7 @@
 ﻿
 namespace Products.Application.Products.Queries.GetProductList
 {
-    public class ProductListVM
+    public class ProductListVm
     {
         public IList<ProductLookupDto> Products { get; set; }
     }

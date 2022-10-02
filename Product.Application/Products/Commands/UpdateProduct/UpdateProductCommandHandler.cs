@@ -17,10 +17,10 @@ namespace Products.Application.Products.Commands.UpdateProduct
 
         public async Task<Unit> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == request.Id);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
             if (product == null)
             {
-                throw new NotFoundException(nameof(Product), product);
+                throw new NotFoundException(nameof(Product), request.Id);
             }
 
             product.Name = request.Name;
