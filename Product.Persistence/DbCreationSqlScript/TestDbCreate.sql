@@ -26,12 +26,12 @@ ProductID UNIQUEIDENTIFIER NOT NULL,
 Name NVARCHAR(255) NOT NULL,
 Description NVARCHAR(MAX),
 CreatingDate DATE NOT NULL DEFAULT GETDATE(),
---Предметная область неизвестна поэтому максимальные габариты 10м, точность 0.01мм
+--Subject area unknown so max dimension size limited to 10 meters, accuracy limited to 0.01mm
 Width DECIMAL(7,2) NOT NULL,
 Height DECIMAL(7,2) NOT NULL,
 Length DECIMAL(7,2) NOT NULL,
 FOREIGN KEY (ProductID) REFERENCES Product(Id) ON DELETE CASCADE
---С индексами пока не разобрался :)
+--More index study need :)
 );
 
 GO
@@ -63,7 +63,7 @@ GO
 
 CREATE TABLE EventLog(
 Id UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
-EventDate DATE NOT NULL DEFAULT GETDATE(),
+EventDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 Description NVARCHAR(MAX)
 );
 
@@ -79,7 +79,7 @@ AFTER INSERT, UPDATE
 AS
 INSERT INTO EventLog(ID, EventDate, Description) VALUES(
 NEWID(),
-GETDATE(),
+CURRENT_TIMESTAMP,
 CONCAT(CONCAT(CONCAT((SELECT Id FROM inserted), ' with name '), (SELECT Name FROM inserted)), ' was inserdet/modified.')
 );
 
@@ -175,8 +175,6 @@ INSERT INTO Product(Id,Name, Description) VALUES(
 'Стол пластиковый',
 'Описание пластикового стола'
 );
---Initial ProductVersion
---Wooden Tables
 
 GO
 
@@ -237,7 +235,6 @@ NEWID(),
 500,
 800
 );
--- Steel Tables
 
 GO
 
@@ -298,7 +295,6 @@ NEWID(),
 500,
 800
 );
---Plastic Tables
 
 GO
 

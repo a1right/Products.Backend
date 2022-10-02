@@ -9,15 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentaition", "Presentaition", "{5F14EEEA-336E-4A88-B42B-EF789F4B7F2C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7AB2CE8B-C47A-4E02-A338-D51FECFB8D96}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Products.Domain", "Product.Domain\Products.Domain.csproj", "{F59FBCD2-6749-482C-B02B-1B213A8CE953}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Products.Application", "Product.Application\Products.Application.csproj", "{E3F54719-F524-4ED5-B644-4CEFA04D9AB0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Products.Persistence", "Product.Persistence\Products.Persistence.csproj", "{F9BF68CA-064B-4BAB-AF27-93FF8A910DF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.WebApi", "Products.WebApi\Products.WebApi.csproj", "{9D4E6F87-91A0-44AF-AF0A-5B50C64C395F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Products.WebApi", "Products.WebApi\Products.WebApi.csproj", "{9D4E6F87-91A0-44AF-AF0A-5B50C64C395F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
